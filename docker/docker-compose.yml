@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  master:
+    image: postgres
+    restart: always
+    ports:
+    - 5435:5432
+    environment:
+      POSTGRES_PASSWORD: master
+      POSTGRES_USER: master
+      POSTGRES_DB: master-database
+
+  slave:
+    image: postgres
+    restart: always
+    ports:
+      - 5436:5432
+    environment:
+      POSTGRES_PASSWORD: slave
+      POSTGRES_USER: slave
+      POSTGRES_DB: slave-database
